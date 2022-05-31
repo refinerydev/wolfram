@@ -4,6 +4,8 @@ go 1.17
 
 require github.com/labstack/echo v3.3.10+incompatible
 
+require github.com/pkg/errors v0.9.1 // indirect
+
 require (
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/lib/pq v1.10.6
