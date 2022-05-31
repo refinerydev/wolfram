@@ -11,7 +11,6 @@ import (
 type repository interface {
 	create(customer entity.Customer) error
 	read() ([]entity.Customer, error)
-	// readById() (entity.Customer, error)
 	update(customer entity.Customer) error
 	delete(customer entity.Customer) error
 }

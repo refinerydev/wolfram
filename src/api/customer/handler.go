@@ -53,7 +53,9 @@ func GetCustomers(c echo.Context) error {
 		return c.JSON(statusCode, response)
 	}
 
-	response := helper.ResponseFormatter(http.StatusOK, "success", "Get uploaded files successful", customers)
+	data := customerListFormatter(customers)
+
+	response := helper.ResponseFormatter(http.StatusOK, "success", "Get uploaded files successful", data)
 
 	return c.JSON(http.StatusOK, response)
 }
