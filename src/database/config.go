@@ -1,29 +1,26 @@
 package database
 
 import (
-	"database/sql"
-	"fmt"
 	"os"
-
-	_ "github.com/lib/pq"
 )
 
-var (
-	dbHost     = os.Getenv("DB_HOST")
-	dbPort     = os.Getenv("DB_PASSWORD")
-	dbUser     = os.Getenv("DB_USER")
-	dbPassword = os.Getenv("DB_PASSWORD")
-	dbName     = os.Getenv("DB_NAME")
-)
+type PsqlDbConnection struct {
+	Host     string
+	Port     string
+	Database string
+	Username string
+	Password string
+	SslMode  string
+}
 
-func Connect() (*sql.DB, error) {
-	connString := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", dbHost, dbPort, dbUser, dbPassword, dbName)
-	db, err := sql.Open("postgres", connString)
-	if err != nil {
-		return nil, err
-	}
+func DbConfig() PsqlDbConnection {
+	dbConfig := PsqlDbConnection{}
+	dbConfig.Host = os.Getenv("DB_HOST")
+	dbConfig.Port = os.Getenv("DB_PORT")
+	dbConfig.Database = os.Getenv("DB_NAME")
+	dbConfig.Username = os.Getenv("DB_USER")
+	dbConfig.Password = os.Getenv("DB_PASSWORD")
+	dbConfig.SslMode = os.Getenv("DB_SSL_MODE")
 
-	fmt.Println("connected!", &db)
-
-	return db, nil
+	return dbConfig
 }
