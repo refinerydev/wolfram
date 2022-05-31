@@ -27,5 +27,8 @@ func main() {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 	e.POST("/api/customers", customer.PostCustomer)
+	e.GET("/api/customers", customer.GetCustomers)
+	e.PATCH("/api/customers/:id", customer.PatchCustomer)
+	e.DELETE("/api/customers/:id", customer.DeleteCustomer)
 	e.Logger.Fatal(e.Start(":1323"))
 }
