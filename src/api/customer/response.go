@@ -11,7 +11,7 @@ type response struct {
 	Address      string  `json:"address"`
 	Latitude     float64 `json:"lat"`
 	Longitude    float64 `json:"long"`
-	CustomerType string  `json:"cutomer_type"`
+	CustomerType string  `json:"customer_type"`
 }
 
 func customerFormatter(customer entity.Customer) response {
