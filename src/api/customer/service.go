@@ -24,6 +24,11 @@ func (s *services) AddNew(req *request) error {
 	customer := entity.Customer{}
 	customer.Name = req.Name
 	customer.Email = req.Email
+	customer.PhoneNumber = req.PhoneNumber
+	customer.Address = req.Address
+	customer.Latitude = req.Latitude
+	customer.Longitude = req.Longitude
+	customer.CustomerType = req.CustomerType
 
 	if err := s.repo.create(customer); err != nil {
 		return err
