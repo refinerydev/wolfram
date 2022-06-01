@@ -51,6 +51,11 @@ func (s *services) Edit(req *request, customerId uint) error {
 	customer.ID = customerId
 	customer.Name = req.Name
 	customer.Email = req.Email
+	customer.PhoneNumber = req.PhoneNumber
+	customer.Address = req.Address
+	customer.Latitude = req.Latitude
+	customer.Longitude = req.Longitude
+	customer.CustomerType = req.CustomerType
 
 	if err := s.repo.update(customer); err != nil {
 		return err
