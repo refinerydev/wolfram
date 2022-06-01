@@ -23,6 +23,8 @@ func main() {
 
 	e.Validator = utils.SetValidator()
 
+	e.File("/public/images/default.png", "src/public/images/default.png")
+
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
