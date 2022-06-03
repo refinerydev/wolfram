@@ -14,6 +14,7 @@ require (
 )
 
 require (
+	github.com/joho/godotenv v1.4.0
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/lib/pq v1.10.6 // indirect
 	github.com/mattn/go-colorable v0.1.11 // indirect

@@ -1,7 +1,11 @@
 package database
 
 import (
+	"fmt"
+	"log"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 type PsqlDbConnection struct {
@@ -14,6 +18,12 @@ type PsqlDbConnection struct {
 }
 
 func DbConfig() PsqlDbConnection {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+		fmt.Println("DB_PORT")
+	}
+
 	dbConfig := PsqlDbConnection{}
 	dbConfig.Host = os.Getenv("DB_HOST")
 	dbConfig.Port = os.Getenv("DB_PORT")
